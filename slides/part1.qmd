@@ -1,0 +1,126 @@
+---
+title: "Part 1"
+subtitle: "The basics"
+author: "Theo Roe"
+format:
+  revealjs: 
+    theme: [default, custom.scss]
+    logo: logo.svg
+    code-link: true
+    css: custom.scss
+    self-contained: true
+    preview-links: true
+---
+
+## Creating a new Quarto document
+
+-   File \> New File \> Quarto Document
+
+-   Set title and author
+
+-   Click **Create**
+
+-   Save and click **Render**
+
+## It's not an R package but...
+
+```{r}
+#| eval: false
+#| echo: true
+library(quarto)
+quarto_render("document.qmd")
+```
+
+## YAML header
+
+``` yaml
+---
+title: "A very cool title"
+format: html
+---
+```
+
+::: callout-note
+YAML: Yet Another Markup Language
+:::
+
+## Including content
+
+-   Text
+-   Links
+-   Images
+-   Code
+-   Embedded tables and plots
+-   Equations
+-   References
+
+[Documentation](https://quarto.org/docs/authoring/markdown-basics.html)
+
+## Including images
+
+::: columns
+::: {.column width="70%"}
+-   Lots of ways to add images to a Quarto document
+
+-   Easiest is to use the Visual editor
+
+-   Click **Insert --\> Figure/Image**
+:::
+
+::: {.column width="30%"}
+[![An Adele Penguin](exercises/adelie.jpg)](https://en.wikipedia.org/wiki/Ad%C3%A9lie_penguin)
+:::
+:::
+
+## Task 1: Your first Quarto document
+
+-   File \> New File \> Quarto Document
+
+-   Click **Create Empty Document**
+
+-   Add a YAML declaring a title, author and HTML output
+``` yaml
+---
+title: "A very cool title"
+author: "Me"
+format: html
+---
+```
+-   Tick **Render on Save**
+
+-   Save and click **Render**
+
+```{r}
+countdown::countdown(minutes = 15,
+                    color_border = "#5b868d",
+                    color_text = "#5b868d",
+                    color_running_text = "white",
+                    color_running_background = "#5b868d",
+                    color_finished_text = "#5b868d",
+                    color_finished_background = "white",
+                    margin = "0.9em",
+                    font_size = "2em")
+```
+
+
+## Task 2: Adelie Penguins 🐧
+
+-   Add the text from `task2.txt`
+
+-   Match the formatting (italics, bold, links) of the first sentence in the [Adelie Penguin wiki](https://en.wikipedia.org/wiki/Ad%C3%A9lie_penguin)
+
+-   Add an image of the Adelie Penguin (there's one in the exercises folder)
+
+-   Extra: Using the visual editor, can you add a penguin emoji to your sentence?
+
+```{r}
+countdown::countdown(minutes = 15,
+                    color_border = "#5b868d",
+                    color_text = "#5b868d",
+                    color_running_text = "white",
+                    color_running_background = "#5b868d",
+                    color_finished_text = "#5b868d",
+                    color_finished_background = "white",
+                    margin = "0.9em",
+                    font_size = "2em")
+```

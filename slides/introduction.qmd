@@ -1,0 +1,112 @@
+---
+title: "Reproducible data reports with Quarto"
+author: "Theo Roe"
+format:
+  revealjs: 
+    theme: [default, custom.scss]
+    logo: logo.svg
+    code-link: true
+    css: custom.scss
+    self-contained: true
+    preview-links: true
+---
+
+## Welcome
+
+Wifi details
+
+vm details
+
+# Me
+
+## Schedule
+
+- 1:30 - 3 workshop pt 1
+
+- 3 - 3:30 refreshment break
+
+- 3:30 - 5 workshop pt 2
+
+- 5 - 7 drinks reception
+
+# Quarto
+
+## What?
+
+- Tool created by RStudio
+
+- Let's us write documents that combine code with text
+
+- Multiple language and multiple output formats
+
+- Effectively a "version 2" of R Markdown
+
+- File extension `.qmd`
+
+## What?
+
+```{mermaid}
+graph LR
+    A[Quarto doc] ---->|render| C{fa:fa-wand-sparkles Magic}
+    C --> D[fa:fa-file-word Word]
+    C ---> E[fa:fa-file-pdf PDF]
+    C ----> F[fa:fa-file-code HTML]
+    C -----> G[fa:fa-copy Others!]
+```
+
+## Where?
+
+- [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
+
+## Why?
+
+- R Markdown isn't going anywhere
+
+- But why should we be using Quarto instead?
+
+- With R Markdown - headaches
+
+- With Quarto - stuff should just "_work_"
+
+
+## Why?
+
+Vs R Markdown:
+
+- More user friendly
+
+- Better control of the output layouts
+
+- Can still render most R Markdown files without modification
+
+- Can be used in:
+  - RStudio
+  - VS Code 
+  - Jupyter Notebookes
+  - Text editors / terminal
+
+## Why?
+
+Vs R Markdown:
+
+- Better multi-language support 
+     - Use Python, Julia and Observable JS without having to have R installed (!!!!!!)
+
+- IMO better documentation
+
+## The plan
+
+- Look at Quarto basics:
+  - Creating a document
+  - Document parameters
+  - Including code
+  - Including tables, plots and referencing
+
+- Walk through a few different outputs in quarto
+
+- At the end you'll have a full example of
+  - A HTML document
+  - A presentation
+  - ???
+  - Maybe some more if we have time
+  
