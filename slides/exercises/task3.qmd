@@ -1,0 +1,15 @@
+---
+title: "A report on Penguins"
+author: "Me"
+format: html
+---
+
+## Background
+
+The **Adélie penguin (*Pygoscelis adeliae*)** 🐧 is a species of [penguin](https://en.wikipedia.org/wiki/Penguin) common along the entire coast of the [Antarctic](https://en.wikipedia.org/wiki/Antarctic) continent, which is the only place where it is found.
+
+A data set containing info on adelie penguins can be found [here](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv).
+
+![](adelie.jpg)
+
+## Analysis

@@ -3,12 +3,11 @@ title: "Part 1"
 subtitle: "The basics"
 author: "Theo Roe"
 format:
-  revealjs: 
+  revealjs:
     theme: [default, custom.scss]
     logo: logo.svg
     code-link: true
     css: custom.scss
-    self-contained: true
     preview-links: true
 ---
 
@@ -79,6 +78,7 @@ YAML: Yet Another Markup Language
 -   Click **Create Empty Document**
 
 -   Add a YAML declaring a title, author and HTML output
+
 ``` yaml
 ---
 title: "A very cool title"
@@ -86,12 +86,13 @@ author: "Me"
 format: html
 ---
 ```
+
 -   Tick **Render on Save**
 
 -   Save and click **Render**
 
 ```{r}
-countdown::countdown(minutes = 15,
+countdown::countdown(minutes = 5,
                     color_border = "#5b868d",
                     color_text = "#5b868d",
                     color_running_text = "white",
@@ -101,7 +102,6 @@ countdown::countdown(minutes = 15,
                     margin = "0.9em",
                     font_size = "2em")
 ```
-
 
 ## Task 2: Adelie Penguins 🐧
 
@@ -111,7 +111,7 @@ countdown::countdown(minutes = 15,
 
 -   Add an image of the Adelie Penguin (there's one in the exercises folder)
 
--   Extra: Using the visual editor, can you add a penguin emoji to your sentence?
+-   Extra: Using the visual editor, can you add a penguin emoji to your text?
 
 ```{r}
 countdown::countdown(minutes = 15,
@@ -123,4 +123,289 @@ countdown::countdown(minutes = 15,
                     color_finished_background = "white",
                     margin = "0.9em",
                     font_size = "2em")
+```
+
+# Including code
+
+## Code chunks
+
+For the bulk of your code and calculations in your doc
+
+## Code chunks
+
+-   Not limited in what code you can run!
+
+-   We could load data...
+
+```{r}
+#| echo: fenced
+penguins = readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv')
+```
+
+## Code chunks
+
+-   Can have as many chunks as you like
+
+```{r}
+#| echo: fenced
+penguins
+```
+
+## Code chunks
+
+-   Order matters!
+
+```{r}
+#| error: true
+#| echo: true
+x
+```
+
+```{r}
+#| echo: true
+x = 5
+```
+
+## Chunk options
+
+-   Control properties of the code within the chunk and it's outputs
+
+-   Controlled using YAML within the code chunks
+
+-   [Tonnes of these](https://quarto.org/docs/reference/formats/html.html)
+
+---
+
+::: {style="font-size: 0.8em;"}
+| Option    | Purpose                                                  | Default value |
+|-----------------|--------------------------------------|-----------------|
+| `echo`    | Show/hide code chunks in the output                      | `true`        |
+| `eval`    | Whether to evaluate code within the chunk                | `true`        |
+| `warning` | Show/hide warnings produced by code in the output        | `true`       |
+| `error`   | Allow the code to error but show the error in the output | `false`       |
+:::
+
+## Chunk options - echo
+
+``` yaml
+#| echo: false
+penguins
+```
+
+produces
+
+```{r}
+#| echo: false
+penguins
+```
+
+## Chunk options - warning
+
+```{r}
+#| echo: true
+#| warning: true
+library("dplyr")
+```
+
+Not anymore...
+
+```{r}
+#| echo: fenced
+#| warning: false
+library("dplyr")
+```
+
+## Code collapsing
+
+```yaml
+#| echo: fenced
+#| code-fold: true
+```
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| code-fold: true
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(gghighlight)
+```
+
+## Task 3: Running some code! 🐧
+
+::: {style="font-size: 0.9em;"}
+-   Open the document `task3.qmd`
+
+-   Under the analysis subheading, add a code chunk to load the {dplyr} and {ggplot2} packages i.e.
+```{r}
+#| echo: true
+#| eval: false
+library("dplyr")
+library("ggplot2")
+```
+
+-   Hide the code chunk and stop the packages messages from displaying
+
+-   Add another code chunk to read in the penguins data (link in doc) and display it i.e.
+```{r}
+#| echo: true
+#| eval: false
+penguins = readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv")
+```
+
+- Make that code chunk a collapsed code chunk i.e. `#|echo: fenced` and `#| code-fold: true`
+:::
+```{r}
+countdown::countdown(minutes = 15,
+                    color_border = "#5b868d",
+                    color_text = "#5b868d",
+                    color_running_text = "white",
+                    color_running_background = "#5b868d",
+                    color_finished_text = "#5b868d",
+                    color_finished_background = "white",
+                    margin = "0.9em",
+                    font_size = "2em",
+                    top = 0)
+```
+
+## Graphs
+
+```{r}
+#| echo: fenced
+#| fig-cap: "Flipper vs bill length of penguin species across three years"
+#| fig-width: 8
+#| output-location: slide 
+ggplot(penguins, aes(x = bill_length_mm, 
+                     y = flipper_length_mm,
+                     colour = species)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~year) + 
+  theme_minimal() 
+```
+
+## Tables
+
+::: columns
+::: {.column width="70%"}
+Millions of table packages / functions. Notable ones:
+
+- `knitr::kable()`
+- `rmarkdown::paged_table()`
+- {reactable}
+- {gt}
+- {flextable}
+
+:::
+
+::: {.column width="30%"}
+![](millions.gif)
+:::
+:::
+
+## Tables
+
+```{r}
+#| echo: true
+library("dplyr")
+(avg_bill = penguins %>% 
+  group_by(species) %>% 
+  summarise(bill_length = mean(bill_length_mm, na.rm = TRUE)))
+```
+
+# Tables
+
+```{r}
+#| echo: fenced
+knitr::kable(avg_bill)
+```
+
+## Tables
+
+```{r}
+#| echo: fenced
+penguins
+```
+
+## Tables
+
+Not great...
+
+::: {style="font-size: 0.7em;"}
+```{r}
+#| echo: fenced
+knitr::kable(penguins)
+```
+:::
+
+## Tables
+
+```{r}
+#| echo: fenced
+#| eval: false
+reactable::reactable(penguins)
+```
+
+## Tables
+
+```{r}
+#| echo: false
+library("reactable")
+reactable::reactable(
+  penguins,
+  style = "font-size: 1.2rem; background: #dae5e7")
+```
+
+## Inline code
+
+```{r}
+#| echo: fenced
+x = 5
+```
+
+The value of x is `` `r "\u0060r x\u0060"` ``
+
+## Inline code
+
+```{r}
+x = 5
+```
+
+The value of x is `r x`
+
+
+## Task 4: Tables and graphs 🐧
+
+::: {style="font-size: 0.9em;"}
+-   Open the document `task4.qmd`
+
+-   Change the displayed penguin data to be a reactable table i.e. `reactable::reactable()`
+
+-   Add a caption to the plot with the `fig-cap` code chunk option
+
+-   Add a code chunk to calculate the largest recorded bill length of an Adelie penguin i.e.
+```{r}
+#| echo: true
+#| eval: false
+max_bill_length = penguins %>% 
+  filter(species == "Adelie") %>% 
+  slice_max(bill_length_mm, n = 1) %>% 
+  pull(bill_length_mm)
+```
+
+- Use inline code to give give the largest recorded bill length of an Adelie penguin
+:::
+```{r}
+countdown::countdown(minutes = 15,
+                    color_border = "#5b868d",
+                    color_text = "#5b868d",
+                    color_running_text = "white",
+                    color_running_background = "#5b868d",
+                    color_finished_text = "#5b868d",
+                    color_finished_background = "white",
+                    margin = "0.9em",
+                    font_size = "2em",
+                    top = 0)
 ```
