@@ -1,6 +1,7 @@
 ---
 title: "Part 2"
-author: "Other formats"
+subtitle: "Other formats"
+author: "Theo Roe"
 format:
   revealjs: 
     theme: [default, custom.scss]
@@ -10,3 +11,405 @@ format:
     self-contained: true
     preview-links: true
 ---
+
+# Presentations
+
+## Formats
+
+* Revealjs
+
+* PowerPoint
+
+* Beamer
+
+# Revealjs
+
+## What?
+
+* Open source HTML presentation framework
+
+* Anything you can do on the web, you can do in your presentation
+    * Style with CSS
+    * `<iframe>` tags
+    * Custom JavaScript for custom slide behaviour
+    
+* Everything from part 1 still relevant
+    
+* A lot of features, we won't get through them all!
+
+
+## YAML header
+
+```yaml
+title: "My Presentation"
+subtitle: "Other formats"
+author: "Me"
+format: revealjs 
+```
+
+## Declaring new slides
+
+```{r}
+#| echo: true
+#| eval: false
+
+# I am a title slide
+
+## I am a standard slide
+```
+
+## Task 5: Your first Revealjs presentation
+
+-   File \> New File \> Quarto Document
+
+-   Click **Create Empty Document**
+
+-   Add a YAML declaring a title, author and HTML output
+
+``` yaml
+---
+title: "A very cool title"
+author: "Me"
+format: revealjs
+---
+```
+
+-   Add one title slide and two normal slides
+
+-   Save and click **Render**
+
+```{r}
+countdown::countdown(minutes = 5,
+                    color_border = "#5b868d",
+                    color_text = "#5b868d",
+                    color_running_text = "white",
+                    color_running_background = "#5b868d",
+                    color_finished_text = "#5b868d",
+                    color_finished_background = "white",
+                    top = 0,
+                    margin = "0.9em",
+                    font_size = "2em")
+```
+
+## Document yaml options
+
+- Document wide YAML options
+
+- Each type of document in Quarto has own specifics
+
+```yaml
+title: "Part 2"
+subtitle: "Other formats"
+author: "Theo Roe"
+format:
+  revealjs:
+    option1: true
+    option2: blah
+```
+
+## Incremental lists
+
+```yaml
+format:
+  revealjs:
+    incremental: true
+```
+
+## Incremental lists
+
+```yaml
+format:
+  revealjs:
+    incremental: true
+```
+<br>  
+    
+```r
+::: {.nonincremental}
+- Die hair blonde
+- Have fun
+:::
+```
+
+## Incremental lists
+
+```r
+::: {.incremental}
+- Die hair blonde
+- Have fun
+:::
+```
+
+## Incremental lists
+
+- If anyone knows any HTML / CSS
+
+- Wrapping some content in a div of class `.class`
+  ```r
+  ::: {.class}
+  some content
+  :::
+  ```
+
+
+## Column layouts
+
+- Easier to insert two columns in visual editor
+
+```r
+:::: {.columns}
+
+::: {.column width="70%"}
+Content for my left column
+:::
+
+::: {.column width="30%"}
+Content for my right column
+:::
+
+::::
+```
+
+## Column layouts
+
+- Can have as many columns as you want
+
+- 2+ columns a teeny bit more difficult in visual editor
+
+```r
+:::: {.columns}
+
+::: {.column width="40%"}
+Content for my left column
+:::
+
+::: {.column width="40%"}
+Content for my middle column
+:::
+
+::: {.column width="20%"}
+Content for my right column
+:::
+
+::::
+```
+
+## Task 6 - Columns / incremental
+
+On your first normal slide
+
+- Add a two column layout:
+
+- Add a bullet / numbered list to the left column
+
+- Add the Adelie penguin image to the right column
+
+- Change the list to be incremental
+
+
+```{r}
+countdown::countdown(minutes = 10,
+                    color_border = "#5b868d",
+                    color_text = "#5b868d",
+                    color_running_text = "white",
+                    color_running_background = "#5b868d",
+                    color_finished_text = "#5b868d",
+                    color_finished_background = "white",
+                    margin = "0.9em",
+                    font_size = "2em")
+```
+
+## Code highlighting
+
+- Highlight / step through lines of code in chunks
+
+- Use the `code-line-numbers` option
+
+## Code highlighting
+
+```{r}
+#| echo: fenced
+#| code-line-numbers: "3"
+add = function(x, y) {
+  d = x + y
+  return(x + y)
+}
+```
+
+## Code highlighting
+
+```{r}
+#| echo: fenced
+#| code-line-numbers: "3,4"
+add = function(x, y) {
+  d = x + y
+  return(x + y)
+}
+```
+
+## Code highlighting
+
+```{r}
+#| echo: fenced
+#| code-line-numbers: "3,6|4|5"
+add = function(x, y) {
+  d = x + y
+  return(x + y)
+}
+```
+
+## Logo
+
+```yaml
+format:
+  revealjs:
+    logo: mylogo.png
+```
+
+## Task 7
+
+- Add `penguin.jpg` as a logo to your slides
+
+- On your second normal slide, copy and paste the "wrangling" code block from `task4.qmd` i.e.
+
+```{r}
+#| echo: fenced
+#| eval: false
+# wrangling - average bill length per species / sex
+penguins = drop_na(penguins, sex)
+avg_bill_length = penguins %>% 
+  group_by(species, sex) %>% 
+  summarise(av_bill_length = mean(bill_length_mm)) %>% 
+  ungroup()
+```
+
+- Highlight the line of code with the `summarise()` function in
+
+# Advanced layouts (ish)
+
+## Tabsets
+
+::: {.panel-tabset}
+
+## Split your document
+
+Hey!
+
+## up into tabs
+
+Hi!
+
+:::
+
+## Tabsets
+
+```r
+::: {.panel-tabset}
+
+## Tab 1 title
+
+Tab 1 content
+
+## Tab 2 title
+
+Tab 2 content
+
+:::
+```
+
+## Task 9 - tabsets
+
+- Open `task09.qmd`
+
+- It's current a standard HTML doc with two elements:
+    - a plot
+    - a reactable table
+    
+- Make this into two tabs using
+
+```r
+::: {.panel-tabset}
+
+:::
+```
+
+```{r}
+countdown::countdown(minutes = 5,
+                    color_border = "#5b868d",
+                    color_text = "#5b868d",
+                    color_running_text = "white",
+                    color_running_background = "#5b868d",
+                    color_finished_text = "#5b868d",
+                    color_finished_background = "white",
+                    top = 0,
+                    margin = "0.9em",
+                    font_size = "2em")
+```
+
+## Dashboards
+
+- Possible to lay your HTML docs out like a dashboard
+
+- If you know Shiny, it's also possible to include Shiny inputs and outputs
+
+- We don't have time to do any Shiny (sorry)
+
+- `page-layout: custom`
+
+- This will enable your document content to be full page width
+
+## YAML header
+
+```yaml
+format: 
+  html:
+    page-layout: custom
+```
+
+## Layout
+
+- Create your layout by adding panels
+
+- The following would have:
+    - A sidebar
+    - 2 x 2 grid for content
+
+```r
+::: {.panel-sidebar}
+
+Markdown and code chunks
+
+:::
+
+::: {.panel-fill layout="[ [50, 50], [50, 50] ]"}
+
+Graphs etc
+
+:::
+
+```
+
+## Task 10 - dashboards
+
+- Open `task10.qmd`
+
+- Render the doc
+
+- What is the layout?
+
+- Can you tell what the negative numbers in the layout mean?
+
+- Rearrange the layout to be a 2 x 2 grid
+
+```{r}
+countdown::countdown(minutes = 5,
+                    color_border = "#5b868d",
+                    color_text = "#5b868d",
+                    color_running_text = "white",
+                    color_running_background = "#5b868d",
+                    color_finished_text = "#5b868d",
+                    color_finished_background = "white",
+                    top = 0,
+                    margin = "0.9em",
+                    font_size = "2em")
+```

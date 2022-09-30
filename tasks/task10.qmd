@@ -1,0 +1,55 @@
+---
+title: "Tabsets penguins..."
+format: 
+  html:
+    page-layout: custom
+---
+
+::: {.panel-sidebar}
+
+## Penguin Info
+
+The Adélie penguin (Pygoscelis adeliae) is a species of penguin common along the entire coast of the Antarctic continent, which is the only place where it is found. It is the most widespread penguin species, and, along with the emperor penguin, is the most southerly distributed of all penguins. It is named after Adélie Land, in turn named for Adèle Dumont d'Urville, who was married to French explorer Jules Dumont d'Urville, who first discovered this penguin in 1840. Adélie penguins obtain their food by both predation and foraging, with a diet of mainly krill and fish.
+
+:::
+
+::: {.panel-fill layout="[ [-30, 40, -30], [3, 3, 3] ]"}
+
+```{r}
+#| echo: false
+#| warning: false
+library("ggplot2")
+data(penguins, package = "palmerpenguins")
+ggplot(penguins, aes(x = bill_length_mm, 
+                     y = flipper_length_mm, 
+                     colour = species)) + 
+  geom_point() + 
+  theme_minimal()
+```
+
+```{r}
+#| echo: false
+#| warning: false
+ggplot(penguins, aes(x = species, fill = species)) + 
+  geom_bar() + 
+  theme_minimal()
+```
+
+```{r}
+#| echo: false
+#| warning: false
+ggplot(penguins, aes(x = bill_length_mm, fill = species)) + 
+  geom_density(alpha = 0.3) + 
+  theme_minimal()
+```
+
+```{r}
+#| echo: false
+#| warning: false
+ggplot(penguins, aes(x = bill_length_mm, fill = sex)) + 
+  geom_density(alpha = 0.3) + 
+  facet_wrap(~species, nrow = 3) + 
+  theme_minimal()
+```
+
+:::

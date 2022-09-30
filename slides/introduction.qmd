@@ -62,28 +62,15 @@ graph LR
 
 - R Markdown isn't going anywhere
 
-- But why should we be using Quarto instead?
-
-- With R Markdown - headaches
-
-- With Quarto - stuff should just "_work_"
-
+- So why should we be using Quarto instead?
 
 ## Why?
 
 Vs R Markdown:
 
-- More user friendly
+- Quarto is **not** an R package
 
-- Better control of the output layouts
-
-- Can still render most R Markdown files without modification
-
-- Can be used in:
-  - RStudio
-  - VS Code 
-  - Jupyter Notebookes
-  - Text editors / terminal
+- Publishing system built on Pandoc
 
 ## Why?
 
@@ -92,7 +79,23 @@ Vs R Markdown:
 - Better multi-language support 
      - Use Python, Julia and Observable JS without having to have R installed (!!!!!!)
 
+- Can be used in:
+  - RStudio
+  - VS Code 
+  - Jupyter Notebookes
+  - Text editors / terminal
+  
+## Why?
+
+Vs R Markdown:
+
 - IMO better documentation
+
+- More user friendly
+
+- Better control of the output layouts
+
+- Can still render most R Markdown files without modification
 
 ## The plan
 
@@ -100,7 +103,7 @@ Vs R Markdown:
   - Creating a document
   - Document parameters
   - Including code
-  - Including tables, plots and referencing
+  - Including tables, plots
 
 - Walk through a few different outputs in quarto
 
@@ -108,5 +111,4 @@ Vs R Markdown:
   - A HTML document
   - A presentation
   - ???
-  - Maybe some more if we have time
   

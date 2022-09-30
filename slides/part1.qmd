@@ -67,7 +67,7 @@ YAML: Yet Another Markup Language
 :::
 
 ::: {.column width="30%"}
-[![An Adele Penguin](exercises/adelie.jpg)](https://en.wikipedia.org/wiki/Ad%C3%A9lie_penguin)
+[![An Adelie Penguin](exercises/adelie.jpg)](https://en.wikipedia.org/wiki/Ad%C3%A9lie_penguin)
 :::
 :::
 
@@ -105,7 +105,7 @@ countdown::countdown(minutes = 5,
 
 ## Task 2: Adelie Penguins 🐧
 
--   Add the text from `task2.txt`
+-   Add the text from `task02.txt` to your Quarto doc
 
 -   Match the formatting (italics, bold, links) of the first sentence in the [Adelie Penguin wiki](https://en.wikipedia.org/wiki/Ad%C3%A9lie_penguin)
 
@@ -114,7 +114,7 @@ countdown::countdown(minutes = 5,
 -   Extra: Using the visual editor, can you add a penguin emoji to your text?
 
 ```{r}
-countdown::countdown(minutes = 15,
+countdown::countdown(minutes = 10,
                     color_border = "#5b868d",
                     color_text = "#5b868d",
                     color_running_text = "white",
@@ -139,7 +139,9 @@ For the bulk of your code and calculations in your doc
 
 ```{r}
 #| echo: fenced
-penguins = readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv')
+penguins = readr::read_csv(
+  'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv'
+  )
 ```
 
 ## Code chunks
@@ -181,7 +183,7 @@ x = 5
 |-----------------|--------------------------------------|-----------------|
 | `echo`    | Show/hide code chunks in the output                      | `true`        |
 | `eval`    | Whether to evaluate code within the chunk                | `true`        |
-| `warning` | Show/hide warnings produced by code in the output        | `true`       |
+| `warning` | Show/hide messages/warnings produced by code in the output        | `true`       |
 | `error`   | Allow the code to error but show the error in the output | `false`       |
 :::
 
@@ -236,7 +238,7 @@ library(gghighlight)
 ## Task 3: Running some code! 🐧
 
 ::: {style="font-size: 0.9em;"}
--   Open the document `task3.qmd`
+-   Open the document `task03.qmd`
 
 -   Under the analysis subheading, add a code chunk to load the {dplyr} and {ggplot2} packages i.e.
 ```{r}
@@ -258,7 +260,7 @@ penguins = readr::read_csv("https://raw.githubusercontent.com/rfordatascience/ti
 - Make that code chunk a collapsed code chunk i.e. `#|echo: fenced` and `#| code-fold: true`
 :::
 ```{r}
-countdown::countdown(minutes = 15,
+countdown::countdown(minutes = 10,
                     color_border = "#5b868d",
                     color_text = "#5b868d",
                     color_running_text = "white",
@@ -315,7 +317,7 @@ library("dplyr")
   summarise(bill_length = mean(bill_length_mm, na.rm = TRUE)))
 ```
 
-# Tables
+## Tables
 
 ```{r}
 #| echo: fenced
@@ -343,7 +345,7 @@ knitr::kable(penguins)
 ## Tables
 
 ```{r}
-#| echo: fenced
+#| echo: true
 #| eval: false
 reactable::reactable(penguins)
 ```
@@ -398,7 +400,7 @@ max_bill_length = penguins %>%
 - Use inline code to give give the largest recorded bill length of an Adelie penguin
 :::
 ```{r}
-countdown::countdown(minutes = 15,
+countdown::countdown(minutes = 10,
                     color_border = "#5b868d",
                     color_text = "#5b868d",
                     color_running_text = "white",
