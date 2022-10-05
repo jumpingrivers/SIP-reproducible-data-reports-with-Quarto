@@ -5,6 +5,7 @@ r_pkgs:
     - quarto
     - reactable
     - countdown
+    - palmerpenguins
 language: r
 trainers:
   primary:
