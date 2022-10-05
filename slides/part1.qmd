@@ -8,6 +8,7 @@ format:
     logo: logo.svg
     code-link: true
     css: custom.scss
+    self-contained: true
     preview-links: true
 ---
 
