@@ -45,14 +45,7 @@ vm details
 
 ## What?
 
-```{mermaid}
-graph LR
-    A[Quarto doc] ---->|render| C{fa:fa-wand-sparkles Magic}
-    C --> D[fa:fa-file-word Word]
-    C ---> E[fa:fa-file-pdf PDF]
-    C ----> F[fa:fa-file-code HTML]
-    C -----> G[fa:fa-copy Others!]
-```
+![](mermaid.png)
 
 ## Where?
 
@@ -97,7 +90,9 @@ Vs R Markdown:
 
 - Can still render most R Markdown files without modification
 
-## The plan
+# The plan
+
+## Part 1
 
 - Look at Quarto basics:
   - Creating a document
@@ -105,10 +100,18 @@ Vs R Markdown:
   - Including code
   - Including tables, plots
 
+## Part 2
+
 - Walk through a few different outputs in quarto
 
-- At the end you'll have a full example of
-  - A HTML document
-  - A presentation
-  - ???
+## The plan
+
+- At the end you'll have an example of a
+  - HTML document
+  - presentation
+  - dashboard (ish)
+  
+- You'll be able to download every file
+
+- Slides are available on [GitHub](link)
   

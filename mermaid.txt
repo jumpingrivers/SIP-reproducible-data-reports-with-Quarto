@@ -1,0 +1,8 @@
+```{mermaid}
+graph LR
+    A[Quarto doc] ---->|render| C{fa:fa-wand-sparkles Magic}
+    C --> D[fa:fa-file-word Word]
+    C ---> E[fa:fa-file-pdf PDF]
+    C ----> F[fa:fa-file-code HTML]
+    C -----> G[fa:fa-copy Others!]
+```

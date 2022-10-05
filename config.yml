@@ -1,0 +1,12 @@
+r_pkgs:
+    - tidyverse
+    - knitr
+    - rmarkdown
+    - quarto
+    - reactable
+    - countdown
+language: r
+trainers:
+  primary:
+    - '@theoroe3'
+    - '@mandy14'

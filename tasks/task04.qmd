@@ -43,6 +43,16 @@ avg_bill_length = penguins %>%
   ungroup()
 ```
 
+```{r}
+#| echo: false
+#| eval: true
+# largest adelie penguin
+max_bill_length = penguins %>% 
+  filter(species == "Adelie") %>% 
+  slice_max(bill_length_mm, n = 1) %>% 
+  pull(bill_length_mm)
+```
+
 This plot shows the distribution of bill length for 3 species of male and female of penguins. There is also a line over plotted to show the average bill length.
 ```{r}
 #| echo: false

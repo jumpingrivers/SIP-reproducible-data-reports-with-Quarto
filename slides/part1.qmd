@@ -26,7 +26,7 @@ format:
 ```{r}
 #| eval: false
 #| echo: true
-library(quarto)
+library("quarto")
 quarto_render("document.qmd")
 ```
 
@@ -67,7 +67,7 @@ YAML: Yet Another Markup Language
 :::
 
 ::: {.column width="30%"}
-[![An Adelie Penguin](exercises/adelie.jpg)](https://en.wikipedia.org/wiki/Ad%C3%A9lie_penguin)
+[![An Adelie Penguin](adelie.jpg)](https://en.wikipedia.org/wiki/Ad%C3%A9lie_penguin)
 :::
 :::
 
@@ -228,22 +228,20 @@ library("dplyr")
 #| echo: fenced
 #| warning: false
 #| code-fold: true
-library(dplyr)
-library(tidyr)
-library(stringr)
-library(ggplot2)
-library(gghighlight)
+library("dplyr")
+library("tidyr")
+library("stringr")
+library("ggplot2")
 ```
 
 ## Task 3: Running some code! 🐧
 
-::: {style="font-size: 0.9em;"}
+::: {style="font-size: 0.8em;"}
 -   Open the document `task03.qmd`
 
 -   Under the analysis subheading, add a code chunk to load the {dplyr} and {ggplot2} packages i.e.
 ```{r}
-#| echo: true
-#| eval: false
+#| echo: fenced
 library("dplyr")
 library("ggplot2")
 ```
@@ -381,23 +379,13 @@ The value of x is `r x`
 ## Task 4: Tables and graphs 🐧
 
 ::: {style="font-size: 0.9em;"}
--   Open the document `task4.qmd`
+-   Open the document `task04.qmd`
 
 -   Change the displayed penguin data to be a reactable table i.e. `reactable::reactable()`
 
 -   Add a caption to the plot with the `fig-cap` code chunk option
 
--   Add a code chunk to calculate the largest recorded bill length of an Adelie penguin i.e.
-```{r}
-#| echo: true
-#| eval: false
-max_bill_length = penguins %>% 
-  filter(species == "Adelie") %>% 
-  slice_max(bill_length_mm, n = 1) %>% 
-  pull(bill_length_mm)
-```
-
-- Use inline code to give give the largest recorded bill length of an Adelie penguin
+-   There is a code chunk to calculate the largest recorded bill length of an Adelie penguin. Use inline code to give state this in a sentence.
 :::
 ```{r}
 countdown::countdown(minutes = 10,

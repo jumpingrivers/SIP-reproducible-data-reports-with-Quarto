@@ -268,9 +268,10 @@ format:
 
 ## Task 7
 
+::: {style="font-size: 0.8em;"}
 - Add `penguin.jpg` as a logo to your slides
 
-- On your second normal slide, copy and paste the "wrangling" code block from `task4.qmd` i.e.
+- On your second normal slide, copy and paste the "wrangling" code block from `task04.qmd` i.e.
 
 ```{r}
 #| echo: fenced
@@ -284,6 +285,20 @@ avg_bill_length = penguins %>%
 ```
 
 - Highlight the line of code with the `summarise()` function in
+
+```{r}
+countdown::countdown(minutes = 5,
+                    color_border = "#5b868d",
+                    color_text = "#5b868d",
+                    color_running_text = "white",
+                    color_running_background = "#5b868d",
+                    color_finished_text = "#5b868d",
+                    color_finished_background = "white",
+                    top = 0,
+                    margin = "1.2em",
+                    font_size = "2em")
+```
+:::
 
 # Advanced layouts (ish)
 
