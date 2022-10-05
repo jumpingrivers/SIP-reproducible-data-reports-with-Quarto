@@ -15,7 +15,17 @@ format:
 
 Wifi details
 
-vm details
+* WiFi guest
+
+Training Environment details
+
+* https://sip-quarto.jumpingrivers.training/welcome/
+
+* password: pasta-pizza
+
+Slides
+
+* https://github.com/jumpingrivers/SIP-reproducible-data-reports-with-Quarto
 
 # Me
 
