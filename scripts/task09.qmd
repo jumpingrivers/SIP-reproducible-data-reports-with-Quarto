@@ -1,0 +1,25 @@
+---
+title: "Tabsets and penguins..."
+format: html
+---
+
+## Plot
+
+```{r}
+#| echo: false
+#| warning: false
+library("ggplot2")
+data(penguins, package = "palmerpenguins")
+ggplot(penguins, aes(x = bill_length_mm, 
+                     y = flipper_length_mm, 
+                     colour = species)) + 
+  geom_point()
+```
+
+## Data
+
+```{r}
+#| echo: false
+#| warning: false
+reactable::reactable(penguins)
+```

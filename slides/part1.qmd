@@ -5,7 +5,7 @@ author: "Theo Roe"
 format:
   revealjs:
     theme: [default, custom.scss]
-    logo: logo.svg
+    logo: graphics/logo.svg
     code-link: true
     css: custom.scss
     self-contained: true
@@ -68,7 +68,7 @@ YAML: Yet Another Markup Language
 :::
 
 ::: {.column width="30%"}
-[![An Adelie Penguin](adelie.jpg)](https://en.wikipedia.org/wiki/Ad%C3%A9lie_penguin)
+[![An Adelie Penguin](graphics/adelie.jpg)](https://en.wikipedia.org/wiki/Ad%C3%A9lie_penguin)
 :::
 :::
 

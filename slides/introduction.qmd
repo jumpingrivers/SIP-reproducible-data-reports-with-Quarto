@@ -4,7 +4,7 @@ author: "Theo Roe"
 format:
   revealjs: 
     theme: [default, custom.scss]
-    logo: logo.svg
+    logo: graphics/logo.svg
     code-link: true
     css: custom.scss
     self-contained: true

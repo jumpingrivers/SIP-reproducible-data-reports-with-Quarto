@@ -1,0 +1,11 @@
+include:
+  - project: 'jumpingrivers/training/materials'
+    ref: main
+    file: 'ci/template-gitlab-ci.yml'
+
+variables:
+  NOTES:   "FALSE" # Should we check notes?
+  SLIDES:  "FALSE" # Should we check slides?
+  RELEASE: "FALSE" # Should we tag & run make final?
+  ALLOWED_NOTES: 0
+  NO_IMPORTS: 0

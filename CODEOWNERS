@@ -1,0 +1,7 @@
+# This file defines those who are able to approve merge requests raised against this repo.
+
+# Users + Groups who can approve changes to _any_ content of this repo
+* @theoroe3 @mandy14 @jumpingrivers/org/internal/notes-admins
+
+# Users + Groups who can approve changes made in the website directory of this repo
+/website/ @jumpingrivers/org/internal/notes-admins @jumpingrivers/org/internal/website-admins

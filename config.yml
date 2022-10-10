@@ -1,13 +1,44 @@
+# See https://jr-books.jmpr.io/training/the-config.yml-file.html
+# for documentation
+version: ~
+front: Introduction to Quarto 
+admin:
+  asana_tag:
+  duration: 3
+  price_band:
+cores: 1.0
+deb_pkgs: ~
+python_pkgs: ~
 r_pkgs:
-    - tidyverse
-    - knitr
-    - rmarkdown
-    - quarto
-    - reactable
-    - countdown
-    - palmerpenguins
+  - tidyverse
+  - knitr
+  - rmarkdown
+  - quarto
+  - reactable
+  - countdown
+  - palmerpenguins
 language: r
+lintr: true
+notes:
+  advert: advert
+  render: rmarkdown::render
+  watermark:
+readme: ~
+rss: false
+related_courses:
+  pre_reqs:
+    - r/introduction
+  suggested:
+    - ~ 
+scripts: ~
+seed: ~
 trainers:
   primary:
     - '@theoroe3'
     - '@mandy14'
+vignettes: false
+website:
+  materials:
+  name:
+  publish: false
+
